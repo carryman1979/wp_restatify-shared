@@ -17,6 +17,7 @@ Key rule:
 ## Components
 
 - PHP runtime registry: `src/php/SharedRegistry.php`
+- PHP migration notice flow: `src/php/Migration/MigrationNoticeManager.php`
 - JS runtime registry: `src/js/runtime-registry.js`
 
 ## Versioning policy
@@ -30,3 +31,14 @@ Key rule:
 - Public repository
 - Composer package metadata included
 - npm package metadata included
+
+## Migration notice flow
+
+`MigrationNoticeManager` can be used by renamed target plugins after a successful settings migration.
+
+Behavior:
+
+- shows DE/EN admin notice (DE default)
+- default action is keep legacy plugins
+- optional action deactivates and removes legacy plugins
+- includes warning that logs/history are not migrated
