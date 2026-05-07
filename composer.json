@@ -1,0 +1,14 @@
+{
+  "name": "restatify/wp_restatify-shared",
+  "description": "Versioned shared UI/runtime components for Restatify WordPress plugins",
+  "type": "library",
+  "license": "GPL-2.0-or-later",
+  "autoload": {
+    "psr-4": {
+      "Restatify\\Shared\\": "src/php/"
+    }
+  },
+  "require": {
+    "php": ">=8.0"
+  }
+}
