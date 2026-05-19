@@ -14,6 +14,7 @@ Protect production behavior while enabling fast, safe iteration across Restatify
 - Run relevant unit tests for changed areas.
 - If trigger/link behavior is changed, validate trigger parsing and persisted values.
 - If API/request mapping is changed, verify input/output mapping remains stable.
+- If a chat handover opens another workflow, document the token/event contract and prefilling fields shared between repos.
 
 ## Editing Guidelines
 - Prefer small, targeted diffs.
