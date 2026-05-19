@@ -16,3 +16,4 @@ This is the canonical, shared workflow for coding agents across Restatify reposi
 - Run relevant unit tests before completion.
 - If behavior changes intentionally, update changelog/docs in the same change.
 - Prefer deterministic test commands over ad-hoc manual checks.
+- If a chat handover opens another workflow, document the token/event contract and prefilling fields shared between repos.
