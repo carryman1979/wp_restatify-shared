@@ -2,7 +2,7 @@
 
 Public shared package for Restatify WordPress plugins.
 
-Version: 1.0.1
+Version: 1.0.2
 
 License: GPL-2.0-or-later
 Website: https://www.restatify.tech
@@ -45,7 +45,7 @@ Behavior:
 - optional action deactivates and removes legacy plugins
 - includes warning that logs/history are not migrated
 
-## Release 1.0.1 highlights
+## Release 1.0.2 highlights
 
-- Added shared AI guideline source files for cross-repo AGENTS and Copilot instructions.
-- Standardized central documentation paths for multi-repo development workflows.
+- Added `PrivacyLegalNotice` utility for centralized legal notice handling across plugins.
+- Documented the release workflow and dependency update expectations for downstream repos.
