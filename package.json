@@ -1,6 +1,6 @@
 {
   "name": "@restatify/wp_restatify-shared",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Versioned shared assets for Restatify WordPress plugins",
   "license": "GPL-2.0-or-later",
   "main": "src/js/runtime-registry.js"
