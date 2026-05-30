@@ -89,7 +89,9 @@ if (!function_exists('get_transient')) {
 
 $root = dirname(__DIR__);
 
+require_once $root . '/src/php/Contracts/BookingApiErrorCodes.php';
 require_once $root . '/src/php/Contracts/BookingPrefillSchema.php';
+require_once $root . '/src/php/Api/BookingApiErrorFormatter.php';
 require_once $root . '/src/php/Util/TokenReplacer.php';
 require_once $root . '/src/php/Util/BookingContactMethodsResolver.php';
 require_once $root . '/src/php/Util/BookingContactChannelProfiles.php';

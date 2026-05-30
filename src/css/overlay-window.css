@@ -1,0 +1,81 @@
+/* Shared overlay window styling for Restatify plugins.
+   Keeps feature behavior in plugin JS, but aligns visual shell and theme integration. */
+
+:root {
+  --rs-overlay-shell-radius: 14px;
+  --rs-overlay-header-radius: 13px 13px 0 0;
+  --rs-overlay-header-shadow: inset 0 -1px 0 color-mix(in srgb, var(--rs-color-text, #0b1221) 12%, transparent);
+}
+
+.restatify-booking__overlay,
+.rsfm-overlay {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.restatify-booking__dialog,
+.rsfm-dialog__inner {
+  border-radius: var(--rs-overlay-shell-radius);
+}
+
+.restatify-booking__header,
+.rsfm-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: -1rem -1rem 1rem;
+  padding: 0.75rem 0.95rem;
+  border-radius: var(--rs-overlay-header-radius);
+  background: color-mix(in srgb, var(--rs-color-primary, #ff6b00) 72%, #ffffff 28%);
+  color: var(--rs-color-text, #0b1221);
+  box-shadow: var(--rs-overlay-header-shadow);
+}
+
+.rsfm-dialog__header {
+  margin: -2rem -2rem 1rem;
+  padding: 0.9rem 1rem;
+}
+
+.restatify-booking__title,
+.rsfm-dialog__title {
+  margin: 0;
+  padding-right: 0;
+  font-size: 1.1rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.restatify-booking__close,
+.rsfm-close {
+  position: static;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 1.45rem;
+  line-height: 1;
+  cursor: pointer;
+  min-width: 34px;
+  min-height: 34px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.16s ease;
+}
+
+.restatify-booking__close:hover,
+.restatify-booking__close:focus-visible,
+.rsfm-close:hover,
+.rsfm-close:focus-visible {
+  background: color-mix(in srgb, #ffffff 20%, transparent);
+  outline: none;
+}
+
+@media (max-width: 640px) {
+  .rsfm-dialog__header {
+    margin: -1.25rem -1.25rem 0.85rem;
+    padding: 0.72rem 0.8rem;
+  }
+}
