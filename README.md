@@ -63,10 +63,11 @@ Behavior:
 
 - Added `PrivacyLegalNotice` utility for centralized legal notice handling across plugins.
 - Documented the release workflow and dependency update expectations for downstream repos.
-- Hotfix cycle without version bump: existing dependent plugin/theme release assets were replaced to fix shared-library installation/runtime path resolution.
+- Version split release cycle with dedicated version bump: existing dependent plugin/theme release assets were replaced to fix shared-library installation/runtime path resolution.
 
 ## Release-prep refresh (2026-05-30)
 
 - No version bump: release prep remains on `1.0.2`.
 - Added shared booking API error formatting helper used by dependent plugin test/runtime paths.
 - Added shared overlay CSS utility for cross-repo UI consistency during hotfix rollout.
+
