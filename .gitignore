@@ -1,2 +1,22 @@
+# IDE
+.vs/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local env
+.env
+.env.*
+
+# PHP / test artifacts
 vendor/
 .phpunit.cache/
+
+# Logs / temp
+*.log
+*.tmp
+*.temp
