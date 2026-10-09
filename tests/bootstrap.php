@@ -87,6 +87,38 @@ if (!function_exists('get_transient')) {
     }
 }
 
+if (!class_exists('WP_Error')) {
+    class WP_Error {
+        public function __construct(public string $code = '') {}
+    }
+}
+
+if (!function_exists('is_wp_error')) {
+    function is_wp_error($value): bool {
+        return $value instanceof WP_Error;
+    }
+}
+
+if (!function_exists('wp_remote_post')) {
+    function wp_remote_post(string $url, array $args = []) {
+        $GLOBALS['restatify_shared_http_calls'][] = [$url, $args];
+        $response = $GLOBALS['restatify_shared_http_response'] ?? [];
+        return is_callable($response) ? $response($url, $args) : $response;
+    }
+}
+
+if (!function_exists('wp_remote_retrieve_response_code')) {
+    function wp_remote_retrieve_response_code(array $response): int {
+        return (int) ($response['response']['code'] ?? 0);
+    }
+}
+
+if (!function_exists('wp_remote_retrieve_body')) {
+    function wp_remote_retrieve_body(array $response): string {
+        return (string) ($response['body'] ?? '');
+    }
+}
+
 $root = dirname(__DIR__);
 
 require_once $root . '/src/php/Contracts/BookingApiErrorCodes.php';
@@ -99,3 +131,4 @@ require_once $root . '/src/php/Util/BookingContactChannels.php';
 require_once $root . '/src/php/Runtime/RateLimiter.php';
 require_once $root . '/src/php/Runtime/PluginState.php';
 require_once $root . '/src/php/Runtime/BootstrapGuard.php';
+require_once $root . '/src/php/Security/CaptchaVerifier.php';

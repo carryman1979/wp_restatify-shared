@@ -2,14 +2,14 @@
 
 Public shared package for Restatify WordPress plugins.
 
-Version: 1.0.2
+Version: 1.1.0
 
 License: GPL-2.0-or-later
 Website: https://www.restatify.tech
 
 ## Purpose
 
-This package provides versioned shared runtime utilities for Restatify plugins.
+This package provides versioned shared runtime utilities for Restatify plugins and themes.
 
 Key rule:
 
@@ -19,6 +19,7 @@ Key rule:
 ## Components
 
 - PHP runtime registry: `src/php/SharedRegistry.php`
+- PHP CAPTCHA verification: `src/php/Security/CaptchaVerifier.php`
 - PHP migration notice flow: `src/php/Migration/MigrationNoticeManager.php`
 - API error formatting helper: `src/php/Api/BookingApiErrorFormatter.php`
 - Shared overlay CSS utility: `src/css/overlay-window.css`
@@ -32,7 +33,7 @@ Key rule:
 
 ## Shared library lifecycle requirement
 
-This requirement is mandatory for `wp_restatify-booking`, `wp_restatify-ai-multichat`, and `wp-restatify-forms`:
+This requirement applies to `wp_restatify-booking`, `wp_restatify-ai-multichat`, `wp-restatify-forms`, and `wp_restatify-base-theme`:
 
 - On install/update, the plugin must ensure this exact shared version is present under `wp-content/wp_restatify-shared/versions/<version>`.
 - The plugin must load shared files from its exact requested version path.
@@ -59,6 +60,9 @@ Behavior:
 - optional action deactivates and removes legacy plugins
 - includes warning that logs/history are not migrated
 
+## Release 1.1.0 highlights
+- Added shared server-side verification for reCAPTCHA v3 and Cloudflare Turnstile, including reCAPTCHA score and action validation.
+
 ## Release 1.0.2 highlights
 
 - Added `PrivacyLegalNotice` utility for centralized legal notice handling across plugins.
@@ -70,4 +74,3 @@ Behavior:
 - No version bump: release prep remains on `1.0.2`.
 - Added shared booking API error formatting helper used by dependent plugin test/runtime paths.
 - Added shared overlay CSS utility for cross-repo UI consistency during hotfix rollout.
-
