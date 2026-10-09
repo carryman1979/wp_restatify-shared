@@ -12,14 +12,20 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  repo-health:
-    name: Repo Health
+  php-unit:
+    name: PHP Unit
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Verify repository structure
-        run: |
-          test -f README.md
-          echo "No unit tests configured yet in this repository."
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer:v2
+          extensions: mbstring, dom, xml, xmlwriter
+      - name: Install PHP dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+      - name: Run PHP unit tests
+        run: composer run test:unit:php
